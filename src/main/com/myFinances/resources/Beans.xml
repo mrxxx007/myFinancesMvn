@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.w3.org/2001/XMLSchema-instance ">
+    <!-- Init datasource -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:~/MyFinances" />
+        <property name="username" value="sa" />
+        <property name="password" value="" />
+    </bean>
+
+    <!-- Datasource for test (DB in memory)-->
+    <bean id="dataSourceTest" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:mem:~/myFinances;DB_CLOSE_DELAY=-1"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <!-- defaults to userJDBCTemplate -->
+    <bean id="userJDBCTemplate" class="main.com.myFinances.dao.templates.UserJDBCTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- defaults to notesJDBCTemplate -->
+    <bean id="notesJDBCTemplate" class="main.com.myFinances.dao.templates.NotesJDBCTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- defaults to categoryJDBCTemplate -->
+    <bean id="categoryJDBCTemplate" class="main.com.myFinances.dao.templates.CategoryJDBCTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>
