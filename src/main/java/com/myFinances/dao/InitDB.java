@@ -17,26 +17,30 @@ public class InitDB {
     }
 
     public void initDB() {
-        jdbcTemplate.update("DROP TABLE IF EXISTS USER;");
+        jdbcTemplate.update("DROP TABLE IF EXISTS CATEGORY");
+        jdbcTemplate.update("DROP TABLE IF EXISTS importancy");
+        jdbcTemplate.update("DROP TABLE IF EXISTS note");
+        jdbcTemplate.update("DROP TABLE IF EXISTS user");
+
         jdbcTemplate.execute("create table user (id int not null auto_increment," +
                 "    login varchar(25)," +
                 "    password VARCHAR(255)," +
-                "    primary key(id));");
+                "    primary key(id))");
 
-        jdbcTemplate.update("DROP TABLE IF EXISTS CATEGORY;");
+
         jdbcTemplate.execute("create table category ( " +
                 "    id int not null auto_increment, " +
                 "    name varchar(50) not null," +
                 "    user_id int, primary key(id)," +
                 "    foreign key (user_id)" +
-                "    references user(id));");
+                "    references user(id))");
 
-        jdbcTemplate.update("DROP TABLE IF EXISTS importancy;");
+
         jdbcTemplate.execute("create table importancy (" +
                 "    id int, " +
-                "    name varchar(50) not null, primary key(id));");
+                "    name varchar(50) not null, primary key(id))");
 
-        jdbcTemplate.update("DROP TABLE IF EXISTS note;");
+
         jdbcTemplate.execute("create table note (" +
                 "    id int not null auto_increment," +
                 "    amount double not null," +
@@ -50,6 +54,6 @@ public class InitDB {
                 "    foreign key (category_id)" +
                 "    references category(id)," +
                 "    foreign key (importancy_id)" +
-                "    references importancy(id));");
+                "    references importancy(id))");
     }
 }
