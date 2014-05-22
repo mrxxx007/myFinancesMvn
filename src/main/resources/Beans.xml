@@ -41,7 +41,7 @@ http://www.w3.org/2001/XMLSchema-instance ">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="initdbController" class="com.myFinances.controllers.InitDBController">
+    <bean id="initDB" class="com.myFinances.dao.InitDB">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>

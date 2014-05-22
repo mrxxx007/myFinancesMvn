@@ -42,4 +42,6 @@ public interface UserService {
     public void deleteCategory(int id);
 
     public double getSumByMonth(User user);
+
+    void initDB();
 }

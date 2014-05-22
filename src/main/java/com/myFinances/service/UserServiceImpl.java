@@ -1,5 +1,6 @@
 package com.myFinances.service;
 
+import com.myFinances.dao.InitDB;
 import com.myFinances.dao.templates.*;
 
 import com.myFinances.exceptions.*;
@@ -114,6 +115,11 @@ public class UserServiceImpl implements UserService {
     public void deleteCategory(int id) {
         CategoryJDBCTemplate categoryJDBCTemplate = (CategoryJDBCTemplate)context.getBean("categoryJDBCTemplate");
         categoryJDBCTemplate.deleteCategory(id);
+    }
+
+    public void initDB() {
+        InitDB initDB = (InitDB) context.getBean("initDB");
+        initDB.initDB();
     }
 
     @Override
