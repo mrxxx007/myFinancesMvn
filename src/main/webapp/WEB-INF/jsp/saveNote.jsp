@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<%@ page import="main.com.myFinances.model.Category" %>
+<%@ page import="com.myFinances.model.Category" %>
 <%@ page import="java.util.List" %>
-<%@ page import="main.com.myFinances.service.UserServiceImpl" %>
-<%@ page import="main.com.myFinances.model.User" %>
+<%@ page import="com.myFinances.service.UserServiceImpl" %>
+<%@ page import="com.myFinances.model.User" %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page session="false" %>

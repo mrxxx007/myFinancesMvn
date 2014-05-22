@@ -18,7 +18,7 @@
 
 
     <listener>
-        <listener-class>main.com.myFinances.servlets.SpringInitializer</listener-class>
+        <listener-class>com.myFinances.servlets.SpringInitializer</listener-class>
     </listener>
 
     <welcome-file-list>
@@ -38,7 +38,7 @@
 
     <!--<filter>-->
         <!--<filter-name>LoginFilter</filter-name>-->
-        <!--<filter-class>com.myFinances.servlets.LoginFilter</filter-class>-->
+        <!--<filter-class>java.com.myFinances.servlets.LoginFilter</filter-class>-->
     <!--</filter>-->
 
     <!--<filter-mapping>-->

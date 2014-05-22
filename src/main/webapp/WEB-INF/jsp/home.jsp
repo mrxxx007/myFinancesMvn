@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <%@ page import="java.util.List" %>
-<%@ page import="main.com.myFinances.model.User" %>
+<%@ page import="com.myFinances.model.User" %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page session="false" %>
