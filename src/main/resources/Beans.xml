@@ -4,11 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.w3.org/2001/XMLSchema-instance ">
     <!-- Init datasource -->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="org.h2.Driver"/>-->
+        <!--<property name="url" value="jdbc:h2:~/MyFinances" />-->
+        <!--<property name="username" value="sa" />-->
+        <!--<property name="password" value="" />-->
+    <!--</bean>-->
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:~/MyFinances" />
-        <property name="username" value="sa" />
-        <property name="password" value="" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/myfinances" />
+        <property name="username" value="sergey" />
+        <property name="password" value="vahadusur" />
     </bean>
 
     <!-- Datasource for test (DB in memory)-->
@@ -31,6 +38,10 @@ http://www.w3.org/2001/XMLSchema-instance ">
 
     <!-- defaults to categoryJDBCTemplate -->
     <bean id="categoryJDBCTemplate" class="com.myFinances.dao.templates.CategoryJDBCTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="initdbController" class="com.myFinances.controllers.InitDBController">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>
