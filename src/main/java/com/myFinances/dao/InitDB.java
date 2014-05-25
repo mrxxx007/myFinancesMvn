@@ -4,9 +4,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
-/**
- * Created by user on 5/22/2014.
- */
 public class InitDB {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
@@ -44,8 +41,8 @@ public class InitDB {
         jdbcTemplate.execute("create table note (" +
                 "    id int not null auto_increment," +
                 "    amount double not null," +
-                "    category_id varchar(30) not null," +
-                "    importancy_id varchar(30)," +
+                "    category_id int not null," +
+                "    importancy_id int," +
                 "    notedate date not null," +
                 "    info varchar(100)," +
                 "    user_id int, primary key(id)," +

@@ -25,7 +25,7 @@ public class LoginController {
 
     private UserService userService = UserServiceImpl.getInstance();
 
-    @RequestMapping("/")
+    @RequestMapping("")
     public String index() {
         return "login";
     }

@@ -16,13 +16,13 @@
     </servlet-mapping>
 
 
-
     <listener>
         <listener-class>com.myFinances.servlets.SpringInitializer</listener-class>
     </listener>
 
     <welcome-file-list>
-        <welcome-file>/login.html</welcome-file>
+        <welcome-file>login.html</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
 
     <servlet-mapping>

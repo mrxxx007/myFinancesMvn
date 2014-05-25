@@ -3,7 +3,7 @@
 create table user ( 
     id int not null auto_increment, 
     login varchar(25),
-    password varchar(20),
+    password varchar(255),
     primary key(id)
 );
 
@@ -29,8 +29,8 @@ create table importancy (
 create table note (
     id int not null auto_increment,
     amount double not null,
-    category_id varchar(30) not null,
-    importancy_id varchar(30),
+    category_id int not null,
+    importancy_id int,
     notedate date not null,
     info varchar(100),
     user_id int,
@@ -43,7 +43,6 @@ create table note (
 );
 
 create index date_index on table note(notedate);
-ALTER TABLE USER MODIFY COLUMN password VARCHAR(255);
 
 insert into user(login, password) values('test1','123');
 insert into category(name, user_id) values('food', 1), ('transport',1), ('health',1),('clothers',1),('entertainment',1),('other',1)
