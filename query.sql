@@ -3,6 +3,7 @@
 create table user ( 
     id int not null auto_increment, 
     login varchar(25),
+    balance double,
     password varchar(255),
     primary key(id)
 );

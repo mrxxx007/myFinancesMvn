@@ -25,10 +25,10 @@ public class LoginController {
 
     private UserService userService = UserServiceImpl.getInstance();
 
-    @RequestMapping("")
-    public String index() {
-        return "login";
-    }
+//    @RequestMapping("")
+//    public String index() {
+//        return "login";
+//    }
 
     @RequestMapping("/login.html")
     public String login(@ModelAttribute("user") User user, BindingResult bindingResult) {

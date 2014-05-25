@@ -48,13 +48,30 @@ public class UserJDBCTemplate implements UserDAO {
 
     @Override
     public void saveUser(User user) {
-        final String SQL = "merge into user(login, password, balance) key(login) values (?, ?, ?)";
-        jdbcTemplate.update(SQL,user.getLogin(), user.getPassword(), user.getBalance());
+        User fromDB;
+        try {
+            fromDB = getUser(user.getLogin());
+        } catch (UserNotFoundException e) {
+            addNewUser(user);
+            return;
+        }
+        user.setId(fromDB.getId());
+        updateUser(user);
     }
 
     @Override
     public void deleteUser(String login) {
         final String SQL = "delete from user where login = ?";
         jdbcTemplate.update(SQL, login);
+    }
+
+    private void addNewUser(User user) {
+        final String SQL = "insert into user (login, password, balance) values (?, ?, ?)";
+        jdbcTemplate.update(SQL, user.getLogin(), user.getPassword(), user.getBalance());
+    }
+
+    private void updateUser(User user) {
+        final String SQL = "update user set login = ?, password = ?, balance = ? where id = ?";
+        jdbcTemplate.update(SQL,user.getLogin(), user.getPassword(), user.getBalance(), user.getId());
     }
 }
