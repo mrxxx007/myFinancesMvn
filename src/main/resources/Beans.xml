@@ -11,12 +11,16 @@ http://www.w3.org/2001/XMLSchema-instance ">
         <!--<property name="password" value="" />-->
     <!--</bean>-->
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/myfinances" />
-        <property name="username" value="sergey" />
-        <property name="password" value="vahadusur" />
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/myfinances"/>
     </bean>
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/myfinances" />-->
+        <!--<property name="username" value="sergey" />-->
+        <!--<property name="password" value="vahadusur" />-->
+    <!--</bean>-->
 
     <!-- Datasource for test (DB in memory)-->
     <bean id="dataSourceTest" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
